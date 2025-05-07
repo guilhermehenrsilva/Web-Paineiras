@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Venda - Granja Paineiras</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="/script/load-menu.js" defer></script>
+</head>
+<body>
+    <!-- Menu será carregado dinamicamente aqui via load-menu.js -->
+
+    <main>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="text-paineiras-green mb-0"><i class="bi bi-cart-plus"></i> Registrar Nova Venda</h2>
+            <a href="index.html" class="btn btn-outline-paineiras-green">
+                <i class="bi bi-arrow-left me-2"></i> Voltar para Início
+            </a>
+        </div>
+
+        <div class="card border-0 shadow">
+            <div class="card-header bg-paineiras-green text-white">
+                <h5 class="mb-0"><i class="bi bi-clipboard-data"></i> Dados da Venda</h5>
+            </div>
+            <div class="card-body">
+                <form id="form-venda">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="cliente" class="form-label">Cliente</label>
+                            <select class="form-select" id="cliente" required>
+                                <option value="" selected disabled>Selecione um cliente</option>
+                                <option>Fazenda Sol Nascente</option>
+                                <option>Avícola Primavera</option>
+                                <option>Supermercado Verde</option>
+                                <option>Restaurante Sabor Rural</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="data" class="form-label">Data da Venda</label>
+                            <input type="date" class="form-control" id="data" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="produto" class="form-label">Produto</label>
+                            <select class="form-select" id="produto" required>
+                                <option value="" selected disabled>Selecione um produto</option>
+                                <option>Ovos Brancos - Caixa com 30un</option>
+                                <option>Ovos Vermelhos - Caixa com 30un</option>
+                                <option>Galinha Caipira - Inteira</option>
+                                <option>Galinha Caipira - Cortada</option>
+                                <option>Frango Colonial - Inteiro</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="quantidade" class="form-label">Quantidade</label>
+                            <input type="number" class="form-control" id="quantidade" min="1" value="1" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="preco" class="form-label">Preço Unitário (R$)</label>
+                            <input type="number" class="form-control" id="preco" step="0.01" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="forma-pagamento" class="form-label">Forma de Pagamento</label>
+                        <select class="form-select" id="forma-pagamento" required>
+                            <option value="" selected disabled>Selecione a forma de pagamento</option>
+                            <option>Dinheiro</option>
+                            <option>Cartão de Crédito</option>
+                            <option>Cartão de Débito</option>
+                            <option>PIX</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="observacoes" class="form-label">Observações</label>
+                        <textarea class="form-control" id="observacoes" rows="2"></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-outline-secondary me-md-2" id="btn-cancelar">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-paineiras-green">
+                            <i class="bi bi-check-circle"></i> Registrar Venda
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Configura a data atual como padrão
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('data').value = today;
+            
+            // Limpar formulário ao cancelar
+            document.getElementById('btn-cancelar').addEventListener('click', function() {
+                document.getElementById('form-venda').reset();
+                document.getElementById('data').value = today;
+            });
+        });
+    </script>
+</body>
+</html>

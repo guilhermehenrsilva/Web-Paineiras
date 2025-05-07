@@ -1,0 +1,63 @@
+<!-- menu.html -->
+<nav id="sidebar" class="bg-paineiras-green">
+    <div class="sidebar-header text-center py-4">
+        <img src="/imagens/logo.png" alt="Logo Granja Paineiras" class="img-fluid" style="max-height: 80px;">
+    </div>
+    
+    <ul class="list-unstyled components">
+        <li>
+            <a href="index.html" class="d-flex align-items-center">
+                <i class="bi bi-house me-3"></i>
+                Início
+            </a>
+        </li>
+        <li>
+            <a href="vendas.html" class="d-flex align-items-center">
+                <i class="bi bi-cart me-3"></i>
+                Vendas
+            </a>
+        </li>
+        <li>
+            <a href="produtos.html" class="d-flex align-items-center">
+                <i class="bi bi-box-seam me-3"></i>
+                Produtos
+            </a>
+        </li>
+        <li>
+            <a href="clientes.html" class="d-flex align-items-center">
+                <i class="bi bi-people me-3"></i>
+                Clientes
+            </a>
+        </li>
+        <li>
+            <a href="relatorios.html" class="d-flex align-items-center">
+                <i class="bi bi-graph-up me-3"></i>
+                Relatórios
+            </a>
+        </li>
+        <li>
+            <a href="configuracoes.html" class="d-flex align-items-center">
+                <i class="bi bi-gear me-3"></i>
+                Configurações
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<script>
+// Função para marcar o item ativo no menu
+function setActiveMenu() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const menuItems = document.querySelectorAll('#sidebar a');
+    
+    menuItems.forEach(item => {
+        const itemHref = item.getAttribute('href');
+        if (itemHref === currentPage) {
+            item.parentElement.classList.add('active');
+        }
+    });
+}
+
+// Chamada quando o menu é carregado
+document.addEventListener('DOMContentLoaded', setActiveMenu);
+</script>
