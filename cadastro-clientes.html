@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Cliente/Fornecedor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"/>
+</head>
+<body class="p-4">
+  <h2><i class="bi bi-person-plus"></i> Cadastro de Cliente / Fornecedor</h2>
+
+  <form id="form-contato" class="mt-4">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="nome" class="form-label">Nome / Razão Social*</label>
+        <input type="text" class="form-control" id="nome" required>
+      </div>
+      <div class="col-md-3">
+        <label for="tipo" class="form-label">Tipo*</label>
+        <select class="form-select" id="tipo" required>
+          <option value="">Selecione</option>
+          <option>Cliente</option>
+          <option>Fornecedor</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="codigo" class="form-label">Código Interno</label>
+        <input type="text" class="form-control" id="codigo">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="endereco" class="form-label">Endereço</label>
+        <input type="text" class="form-control" id="endereco">
+      </div>
+      <div class="col-md-3">
+        <label for="telefone" class="form-label">Telefone</label>
+        <input type="tel" class="form-control" id="telefone">
+      </div>
+      <div class="col-md-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <label for="cidade" class="form-label">Cidade</label>
+        <input type="text" class="form-control" id="cidade">
+      </div>
+      <div class="col-md-4">
+        <label for="estado" class="form-label">Estado</label>
+        <input type="text" class="form-control" id="estado">
+      </div>
+      <div class="col-md-4">
+        <label for="cnpjcpf" class="form-label">CNPJ / CPF</label>
+        <input type="text" class="form-control" id="cnpjcpf">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+      <i class="bi bi-save"></i> Salvar Cadastro
+    </button>
+    <a href="clientes.html" class="btn btn-secondary">Ver Lista</a>
+  </form>
+
+  <script>
+    document.getElementById('form-contato').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const cliente = {
+        nome: document.getElementById('nome').value,
+        tipo: document.getElementById('tipo').value,
+        codigo: document.getElementById('codigo').value,
+        endereco: document.getElementById('endereco').value,
+        telefone: document.getElementById('telefone').value,
+        email: document.getElementById('email').value,
+        cidade: document.getElementById('cidade').value,
+        estado: document.getElementById('estado').value,
+        cnpjcpf: document.getElementById('cnpjcpf').value,
+      };
+
+      const lista = JSON.parse(localStorage.getItem('contatos')) || [];
+      lista.push(cliente);
+      localStorage.setItem('contatos', JSON.stringify(lista));
+      alert('Cadastro salvo com sucesso!');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
