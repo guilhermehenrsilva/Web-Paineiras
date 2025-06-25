@@ -10,16 +10,16 @@ html{
 
   .custom-form {
     background-color: #ffffff;
-    border: 2px solid #2D8C27;
+    border: 2px solid #228B22;
     border-radius: 10px;
     padding: 30px;
     max-width: 400px;
     margin: 50px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px #000000;
   }
 
   .custom-form label {
-    color: #2D8C27;
+    color: #228B22;
     font-weight: bold;
   }
 
@@ -28,21 +28,22 @@ html{
   }
 
   .custom-form .form-check-label {
-    color: #2D8C27;
+    color: #228B22;
   }
 
   .custom-form .btn-primary {
-    background-color: #2D8C27;
+    background-color: #228B22;
     border: none;
   }
 
   .custom-form .btn-primary:hover {
-    background-color: #4CAF50;
+    background-color: #228B22;
   }
 
   .error-msg {
-    color: #D32F2F;
+    color: #D70000;
     font-weight: bold;
     margin-top: 10px;
     display: none;
   }
+  
